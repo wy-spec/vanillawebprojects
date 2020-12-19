@@ -53,11 +53,11 @@ for (let i = 0; i < brickRowCount; i++) {
   }
 }
 
-// Draw ball on canvas
+// Draw ball on canvas 球
 function drawBall() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
-  ctx.fillStyle = ball.visible ? '#0095dd' : 'transparent';
+  ctx.fillStyle = ball.visible ? 'red' : 'transparent';
   ctx.fill();
   ctx.closePath();
 }
@@ -66,7 +66,7 @@ function drawBall() {
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-  ctx.fillStyle = paddle.visible ? '#0095dd' : 'transparent';
+  ctx.fillStyle = paddle.visible ? 'red' : 'transparent';
   ctx.fill();
   ctx.closePath();
 }
@@ -197,6 +197,7 @@ function draw() {
   drawBricks();
 }
 
+//清0 事件
 // Update canvas drawing and animation
 function update() {
   movePaddle();
@@ -205,7 +206,7 @@ function update() {
   // Draw everything
   draw();
 
-  requestAnimationFrame(update);
+  // requestAnimationFrame(update);
 }
 
 update();
@@ -231,10 +232,14 @@ function keyUp(e) {
   }
 }
 
-// Keyboard event handlers
+
+
+// Keyboard event handlers 按键按下滑块移动的事件
 document.addEventListener('keydown', keyDown);
+//按键松开后滑块不移动
 document.addEventListener('keyup', keyUp);
 
-// Rules and close event handlers
+// Rules and close event handlers 点击事件的显示功能===》 左侧提示游戏规定弹窗出来的效果
 rulesBtn.addEventListener('click', () => rules.classList.add('show'));
+//左侧弹窗中关闭按钮的事件，使左侧弹窗收回的效果
 closeBtn.addEventListener('click', () => rules.classList.remove('show'));
