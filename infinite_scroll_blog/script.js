@@ -19,7 +19,7 @@ async function getPosts() {
 // Show posts in DOM
 async function showPosts() {
   const posts = await getPosts();
-
+  console.log(posts)
   posts.forEach(post => {
     const postEl = document.createElement('div');
     postEl.classList.add('post');
@@ -71,8 +71,8 @@ showPosts();
 
 window.addEventListener('scroll', () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-  if (scrollTop + clientHeight >= scrollHeight - 5) {
+  console.log(scrollTop + clientHeight)
+  if (scrollTop + clientHeight >= scrollHeight-5) {
     showLoading();
   }
 });

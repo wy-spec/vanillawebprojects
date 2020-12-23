@@ -136,7 +136,9 @@ addCardBtn.addEventListener('click', () => {
 
   if (question.trim() && answer.trim()) {
     const newCard = { question, answer };
+    // const { question, answer } =  ;
 
+    console.log(newCard)
     createCard(newCard);
 
     questionEl.value = '';
